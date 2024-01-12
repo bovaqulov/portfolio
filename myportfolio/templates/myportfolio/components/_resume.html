@@ -1,0 +1,45 @@
+{% load static %}
+
+<section class="section my-work" data-section="section3">
+    <div class="container">
+        <div class="section-heading">
+            <h2>My Works</h2>
+            <div class="line-dec"></div>
+            <span>
+                    Buyurtma asosidagi, o'zim qiziqan yoki talablardan kelib chiqib,
+                    iltimoslarga asoslangan loyhalarim
+                </span>
+        </div>
+        <div class="row">
+            <div class="isotope-wrapper">
+                <form class="isotope-toolbar">
+                    <label>
+                        <input type="radio" data-type="*" checked="" name="isotope-filter"/>
+                        <span>all</span>
+                    </label>
+                    {% for category in categories %}
+                        <label>
+                            <input type="radio" data-type="{{ category.title }}" name="isotope-filter"/>
+                            <span>{{ category.title }}</span>
+                        </label>
+                    {% endfor %}
+                    <div class="isotope-box">
+                        <div class="isotope-item" data-type="bots">
+                            {% for project in projects %}
+                                <h3>{{ project.title }}</h3>
+                                <figure class="snip1321">
+                                    <img src="{{ project.get_first_photo }}" alt="sq-sample26"/>
+                                    <figcaption>
+                                        <a href="{{ project.link }}"><i class="fa fa-link"></i></a>
+                                        <h4>{{ project.title }}</h4>
+                                        <span>{{ project.description }}</span>
+                                    </figcaption>
+                                </figure>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
